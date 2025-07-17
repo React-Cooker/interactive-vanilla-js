@@ -24,7 +24,7 @@
 </head>
 <body>
 
-    <h2>JavaScript DOM Olayları Oyun Alanı</h2>
+    <h2>JavaScript Experimental</h2>
     <p>Input kutusuna `.` içeren bir metin yazarak (örn: `react.native.rocks`) farklı event listener'ların davranışını test edin.</p>
 
     <div id="text">
@@ -40,15 +40,15 @@
 
         function handleInputChange(event) {
             const transformedText = event.target.value.split('.').join(' ');
-            outputElement.innerText = transformedText || "Çıktı burada görünecek..."; // Input boşsa varsayılan metni göster
+            outputElement.innerText = transformedText || "input boş"; // Input boşsa varsayılan metni göster
             console.log(`'${event.type}' olayı tetiklendi!`);
         }
 
         // --- TEST ETMEK İÇİN BİRİNİ SEÇİN ---
         // Sadece bir satırın başındaki yorumu kaldırarak deneme yapın.
-        inputElement.addEventListener('input', handleInputChange);
-        // inputElement.addEventListener('keypress', handleInputChange);
-        // inputElement.addEventListener('click', handleInputChange);
+        inputElement.addEventListener('input',handleInputChange);
+        //inputElement.addEventListener('keypress', handleInputChange);
+        //inputElement.addEventListener('click', handleInputChange);
     </script>
 
 </body>
