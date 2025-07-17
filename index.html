@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>JS DOM Events Playground</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; padding: 20px; background-color: #f4f4f9; color: #333;}
+        h2 { color: #4a4a4a; }
+        p { color: #5a5a5a; }
+        input { font-size: 1rem; padding: 8px; margin-bottom: 10px; border: 2px solid #ddd; border-radius: 4px; }
+        input:focus { border-color: #007BFF; outline: none; }
+        #output {
+            background-color: #ffc107; /* Sarı tonu */
+            color: #333;
+            width: 60%;
+            padding: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            min-height: 30px;
+            border-radius: 4px;
+            border: 1px solid #e0a800;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>JavaScript DOM Olayları Oyun Alanı</h2>
+    <p>Input kutusuna `.` içeren bir metin yazarak (örn: `react.native.rocks`) farklı event listener'ların davranışını test edin.</p>
+
+    <div id="text">
+        <div>
+            <input id="input" placeholder="Bir şeyler yazın...">
+        </div>
+        <div id="output">Çıktı burada görünecek...</div>
+    </div>
+
+    <script>
+        const inputElement = document.getElementById('input');
+        const outputElement = document.getElementById('output');
+
+        function handleInputChange(event) {
+            const transformedText = event.target.value.split('.').join(' ');
+            outputElement.innerText = transformedText || "Çıktı burada görünecek..."; // Input boşsa varsayılan metni göster
+            console.log(`'${event.type}' olayı tetiklendi!`);
+        }
+
+        // --- TEST ETMEK İÇİN BİRİNİ SEÇİN ---
+        // Sadece bir satırın başındaki yorumu kaldırarak deneme yapın.
+        inputElement.addEventListener('input', handleInputChange);
+        // inputElement.addEventListener('keypress', handleInputChange);
+        // inputElement.addEventListener('click', handleInputChange);
+    </script>
+
+</body>
+</html>
